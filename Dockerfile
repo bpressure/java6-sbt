@@ -9,7 +9,7 @@ RUN yum install -y tar gzip && \
 WORKDIR /project
 RUN echo 'object Warmup extends App { println("\n\nsbt warmup done") }' > warmup.scala && \
     echo "sbt.version=$SBT_VERSION" > project/build.properties && \
-    sbt run 
-RUN echo 'scalaVersion := "2.12.2"' > build.sbt && \
+    sbt run  && \
+    echo 'scalaVersion := "2.12.2"' > build.sbt && \
     sbt run && \
     rm -rf /project/warmup.scala /project/target /project/project/target
